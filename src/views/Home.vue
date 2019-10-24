@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- 导航组件 -->
     <nav-menu :navList="nav_list" :styles="styles"></nav-menu>
   </div>
 </template>
@@ -22,9 +23,9 @@ export default {
         text_color: '#fff',
         active_color: '#ffd04b',
         mode: true,
-        spam: 24,
+        spam: 24
       }
-    }
+    };
   },
   components: {
     NavMenu

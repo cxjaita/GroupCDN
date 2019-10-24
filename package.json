@@ -38,7 +38,9 @@
       "plugin:vue/essential",
       "@vue/prettier"
     ],
-    "rules": {},
+    "rules": {
+      "singleQuote": false
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
