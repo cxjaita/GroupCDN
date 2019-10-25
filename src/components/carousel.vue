@@ -13,29 +13,34 @@
         <!-- <h3>{{ item.title }}</h3> -->
         <img :src="item.url" class="carousel_img" />
       </el-carousel-item>
-      <v-touch @swipeleft="swiperleft" @swiperight="swiperright" class="swipe" :style="{ height: styles.height + 'px' }"></v-touch>
+      <v-touch
+        @swipeleft="swiperleft"
+        @swiperight="swiperright"
+        class="swipe"
+        :style="{ height: styles.height + 'px' }"
+      ></v-touch>
     </el-carousel>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'carousel',
+  name: "carousel",
   data() {
     return {};
   },
   props: {
     carouseLlist: null,
-    styles: null,
+    styles: null
   },
   methods: {
-    swiperleft(e) {
-      this.$refs.carousel.next()
+    swiperleft() {
+      this.$refs.carousel.next();
     },
-    swiperright(e) {
-      this.$refs.carousel.prev()
-    },
-  },
+    swiperright() {
+      this.$refs.carousel.prev();
+    }
+  }
 };
 // indicator = 指示器 （none = 不显示，outside = 显示在外部，不传默认显示在内部）,
 // autoplay = 是否自动切换（默认是）,
