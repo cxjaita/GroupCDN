@@ -11,7 +11,7 @@
           :text-color="styles && styles.text_color"
           :active-text-color="styles && styles.active_color"
         >
-          <div v-for="(item, index) in navList" :key="index" :class="{'border' : index == key}">
+          <div v-for="(item, index) in navList" :key="index" :class="{'border' : index == key && styles.mode}">
             <el-menu-item :index="String(index)" v-if="!item.submenu">
               {{ item.name }}
             </el-menu-item>
