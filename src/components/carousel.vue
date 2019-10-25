@@ -17,7 +17,7 @@
         @swipeleft="swiperleft"
         @swiperight="swiperright"
         class="swipe"
-        :style="{ height: styles.height + 'px' }"
+        :style="{ height: styles.height + 'px' || '100%' }"
       ></v-touch>
     </el-carousel>
   </div>
@@ -57,6 +57,14 @@ export default {
 //   height: 200,
 //   arrow: 'arrow'
 // }
+
+// 数据  title=名字（备用字段）， url=图片地址（必须字段）
+// carouseLlist: [
+//   {
+//     title: "轮播图1",
+//     url: require("../assets/10832636670691647912177.jpg")
+//   },
+// ]
 </script>
 <style lang="less" scoped>
 .carousel_img {
