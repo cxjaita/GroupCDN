@@ -4,18 +4,26 @@
       <el-col :span="styles.spam || 24">
         <el-menu
           :default-active="styles && styles.active"
-          :class="{'el-menu-demo': styles, 'el-menu-demo': styles.mode }"
+          :class="{ 'el-menu-demo': styles, 'el-menu-demo': styles.mode }"
           :mode="styles && styles.mode == true ? 'horizontal' : 'vertical'"
-          @select="handleSelect"
+          @select="event"
           :background-color="styles && styles.bg_color"
           :text-color="styles && styles.text_color"
           :active-text-color="styles && styles.active_color"
         >
-          <div v-for="(item, index) in navList" :key="index">
-            <el-menu-item :index="String(index)" v-if="!item.submenu">{{ item.name }}</el-menu-item>
+          <div v-for="(item, index) in navList" :key="index" :class="{'border' : index == key}">
+            <el-menu-item :index="String(index)" v-if="!item.submenu">
+              {{ item.name }}
+            </el-menu-item>
             <el-submenu :index="String(index)" v-if="item.submenu">
               <template slot="title">{{ item.name }}</template>
-              <el-menu-item v-for="(i, idx) in item.children" :index="String(index) + '-' + String(idx)">{{ i.name }}</el-menu-item>
+              <el-menu-item
+                v-for="(i, idx) in item.children"
+                :key="idx"
+                :index="String(index) + '-' + String(idx)"
+              >
+                {{ i.name }}
+              </el-menu-item>
             </el-submenu>
           </div>
         </el-menu>
@@ -26,16 +34,22 @@
 
 <script>
 export default {
-  name: 'navmenu',
+  name: "navmenu",
+  data() {
+    return {
+      key: null || this.styles.active
+    };
+  },
   props: {
     navList: null,
-    styles: null,
+    styles: null
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    },
-  },
+    event(key, keyPath) {
+      this.key = keyPath[0];
+      this.$emit("event", { key, keyPath });
+    }
+  }
 };
 
 // 数据示例
@@ -59,5 +73,11 @@ export default {
 <style lang="less" scoped>
 .el-menu-demo {
   display: flex;
+}
+.border {
+  border-bottom: 2px solid #ffd04b;
+  color: #ffd04b;
+  border-bottom-color: #ffd04b;
+  background-color: #545c64;
 }
 </style>
