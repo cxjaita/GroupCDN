@@ -5,7 +5,7 @@
         <el-menu
           :default-active="styles && styles.active"
           :class="{ 'el-menu-demo': styles, 'el-menu-demo': styles.mode }"
-          :mode="styles && styles.mode == true ? 'horizontal' : 'vertical'"
+          :mode="styles && styles.mode ? 'horizontal' : 'vertical'"
           @select="event"
           :background-color="styles && styles.bg_color"
           :text-color="styles && styles.text_color"
