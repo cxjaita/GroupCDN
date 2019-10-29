@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navmenu">
     <el-row class="tac">
       <el-col :span="styles.spam || 24">
         <el-menu

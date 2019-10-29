@@ -4,12 +4,15 @@
     <nav-menu :navList="nav_list" :styles="navstyles"></nav-menu>
     <!-- 轮播图组件 -->
     <Carousel :styles="CarouselStyles" :carouseLlist="carouseLlist"></Carousel>
+    <!-- 表单组件 -->
+    <Forms :forms="forms"></Forms>
   </div>
 </template>
 
 <script>
 import NavMenu from "@/components/navmenu";
 import Carousel from "@/components/carousel";
+import Forms from "@/components/forms";
 export default {
   name: "home",
   data() {
@@ -49,12 +52,63 @@ export default {
         type: false,
         height: 200,
         arrow: "never"
-      }
+      },
+      forms: [
+        {
+          input: true,
+          data: "输入框值",
+          label: "姓名",
+          placeholder: "请输入姓名"
+        },
+        {
+          select: true,
+          data: "1",
+          label: "年龄",
+          placeholder: "请选择年龄",
+          options: [
+            { label: "24岁", value: "1" },
+            { label: "25岁", value: "2" }
+          ]
+        },
+        {
+          timestart: true,
+          timesnd: true,
+          data1: "开始日期",
+          data2: "结束日期",
+          label: "时间选择",
+          placeholder1: "请选择开始时间",
+          placeholder2: "请选择结束时间"
+        },
+        { switch: true, data: "true", label: "姓名" },
+        {
+          checkbox: true,
+          data: [],
+          label: "个人爱好",
+          options: [
+            { label: "多选项1", name: "type" },
+            { label: "多选项2", name: "type" },
+            { label: "多选项3", name: "type" }
+          ]
+        },
+        {
+          radio: true,
+          data: "单选框值",
+          label: "性别",
+          options: [{ label: "选项1" }, { label: "选项2" }, { label: "选项3" }]
+        },
+        {
+          textarea: true,
+          data: "多行文本框值",
+          label: "个人描述",
+          placeholder: "请输入描述信息"
+        }
+      ]
     };
   },
   components: {
     NavMenu,
-    Carousel
+    Carousel,
+    Forms
   }
 };
 </script>

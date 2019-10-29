@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="carousel">
     <el-carousel
       :indicator-position="styles && styles.indicator"
       :autoplay="styles && styles.autoplay"
