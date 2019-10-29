@@ -107,7 +107,7 @@ export default {
 //   开关
 //   {switch: true, data: 'true', label: '姓名'},
 //   多选框
-//   {checkbox: true, data: '多选框值', label: '人员性质', options: [
+//   {checkbox: true, data: ['多选框值'], label: '人员性质', options: [
 //     {label: '多选项1', name: 'type'},
 //     {label: '多选项2', name: 'type'},
 //     {label: '多选项3', name: 'type'},
