@@ -31,7 +31,7 @@ export default {
   },
   props: {
     carouseLlist: null,
-    styles: null
+    styles: null,
   },
   methods: {
     swiperleft() {

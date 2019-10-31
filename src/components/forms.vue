@@ -122,4 +122,8 @@ export default {
 //   {textarea: true, data: '多行文本框值', label: '个人描述', placeholder: '请输入描述信息'},
 // ]
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.line {
+  text-align: center;
+}
+</style>

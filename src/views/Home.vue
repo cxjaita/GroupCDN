@@ -6,6 +6,8 @@
     <Carousel :styles="CarouselStyles" :carouseLlist="carouseLlist"></Carousel>
     <!-- 表单组件 -->
     <Forms :forms="forms"></Forms>
+    <!-- 输入框 -->
+    <FormInput :styles="InputStyle"></FormInput>
   </div>
 </template>
 
@@ -13,6 +15,7 @@
 import NavMenu from "@/components/navmenu";
 import Carousel from "@/components/carousel";
 import Forms from "@/components/forms";
+import FormInput from "@/components/form/input";
 export default {
   name: "home",
   data() {
@@ -28,7 +31,7 @@ export default {
         text_color: "#fff",
         active_color: "#ffd04b",
         mode: true,
-        spam: 24
+        width: 24
       },
       // 轮播如数据
       carouseLlist: [
@@ -53,6 +56,7 @@ export default {
         height: 200,
         arrow: "never"
       },
+      // 表单数据
       forms: [
         {
           input: true,
@@ -102,13 +106,18 @@ export default {
           label: "个人描述",
           placeholder: "请输入描述信息"
         }
-      ]
+      ],
+      // 输入框数据
+      InputStyle: {
+        width: '2em'
+      }
     };
   },
   components: {
     NavMenu,
     Carousel,
-    Forms
+    Forms,
+    FormInput
   }
 };
 </script>
