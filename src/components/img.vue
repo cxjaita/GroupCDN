@@ -1,6 +1,6 @@
 <template>
   <div class="img">
-    <img :src="attribute.url" :style="styles">
+    <img :src="data.url" :style="styles">
   </div>
 </template>
 
@@ -11,13 +11,14 @@ export default {
     return {};
   },
   props: {
-    attribute: null,
+    data: null,
     styles: null
   },
   methods: {
   },
 };
-
+// styles = {样式}
+// data = {属性值 url}
 </script>
 
 <style lang="less"></style>
