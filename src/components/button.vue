@@ -1,6 +1,6 @@
 <template>
   <div class="button">
-    <el-button :style="styles">{{ data.value }}</el-button>
+    <el-button :style="styles">{{ data.name }}</el-button>
   </div>
 </template>
 

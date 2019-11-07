@@ -1,10 +1,11 @@
 <template>
   <div class="componentlist">
-    <div class="btn" v-for="(item, index) in data">{{item.name}}</div>
+    <div @click="btn(item)" class="btn" v-for="(item, index) in data">{{item.name}}</div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   name: "componentlist",
   data() {
@@ -15,7 +16,12 @@ export default {
     data: null,
     styles: null
   },
-  methods: {},
+  methods: {
+    ...mapMutations(['SelectComponents']),
+    btn(e) {
+      this.SelectComponents(e);
+    }
+  },
   mounted () {
     console.log(this.data)
   }
