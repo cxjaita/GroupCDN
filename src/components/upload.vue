@@ -1,6 +1,12 @@
 <template>
   <div class="upload">
-    <el-upload :action="data.url" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove" :style="styles">
+    <el-upload
+      :action="data.url"
+      list-type="picture-card"
+      :on-preview="handlePictureCardPreview"
+      :on-remove="handleRemove"
+      :style="styles"
+    >
       <i class="el-icon-plus"></i>
     </el-upload>
     <el-dialog :visible.sync="dialogVisible" size="tiny">
@@ -11,16 +17,16 @@
 
 <script>
 export default {
-  name: 'upload',
+  name: "upload",
   data() {
     return {
-      dialogImageUrl: '',
-      dialogVisible: false,
+      dialogImageUrl: "",
+      dialogVisible: false
     };
   },
   props: {
     data: null,
-    styles: null,
+    styles: null
   },
   methods: {
     handleRemove(file, fileList) {
@@ -29,8 +35,8 @@ export default {
     handlePictureCardPreview(file) {
       this.dialogImageUrl = file.url;
       this.dialogVisible = true;
-    },
-  },
+    }
+  }
 };
 // styles = {样式}
 // data = {属性值 url}

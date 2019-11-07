@@ -1,11 +1,19 @@
 <template>
   <div class="form_select">
-    <el-select v-model="value" :placeholder="attribute && attribute.placeholder" :style="styles" :multiple="attribute && attribute.multiple" :disabled="attribute && attribute.disabled" @change="select_change">
+    <el-select
+      v-model="value"
+      :placeholder="attribute && attribute.placeholder"
+      :style="styles"
+      :multiple="attribute && attribute.multiple"
+      :disabled="attribute && attribute.disabled"
+      @change="select_change"
+    >
       <el-option
         v-for="item in data"
         :key="item.value"
         :label="item.label"
-        :value="item.value">
+        :value="item.value"
+      >
       </el-option>
     </el-select>
   </div>
@@ -13,7 +21,7 @@
 
 <script>
 export default {
-  name: 'form_select',
+  name: "form_select",
   data() {
     return {};
   },
@@ -25,10 +33,10 @@ export default {
   },
   methods: {
     // 选中值改变
-    select_change () {
-      this.$emit('select_change', this.value);
+    select_change() {
+      this.$emit("select_change", this.value);
     }
-  },
+  }
 };
 
 // attribute: {
@@ -36,7 +44,6 @@ export default {
 //   multiple: true(是否多选),
 //   disabled: false(是否禁用),
 // }
-
 </script>
 
 <style lang="less"></style>

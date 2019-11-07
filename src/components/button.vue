@@ -1,12 +1,12 @@
 <template>
   <div class="button">
-    <el-button :style="styles">{{data.value}}</el-button>
+    <el-button :style="styles">{{ data.value }}</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'button',
+  name: "button",
   data() {
     return {};
   },
@@ -14,8 +14,7 @@ export default {
     data: null,
     styles: null
   },
-  methods: {
-  },
+  methods: {}
 };
 // styles = {样式}
 // data = {属性值 value}

@@ -1,12 +1,12 @@
 <template>
   <div class="text">
-    <h2 :style="styles">{{data.title}}</h2>
+    <h2 :style="styles">{{ data.title }}</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'text',
+  name: "text",
   data() {
     return {};
   },
@@ -14,8 +14,7 @@ export default {
     data: null,
     styles: null
   },
-  methods: {
-  },
+  methods: {}
 };
 // styles = {样式}
 // data = {属性值 title}

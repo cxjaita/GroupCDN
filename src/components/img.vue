@@ -1,12 +1,12 @@
 <template>
   <div class="img">
-    <img :src="data.url" :style="styles">
+    <img :src="data.url" :style="styles" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'img',
+  name: "img",
   data() {
     return {};
   },
@@ -14,8 +14,7 @@ export default {
     data: null,
     styles: null
   },
-  methods: {
-  },
+  methods: {}
 };
 // styles = {样式}
 // data = {属性值 url}

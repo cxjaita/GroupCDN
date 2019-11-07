@@ -1,40 +1,56 @@
 <template>
   <div class="index">
-    <!-- 导航组件 -->
-    <nav-menu :navList="nav_list" :styles="navstyles" @event="event"></nav-menu>
+    <!-- tab组件（嵌套组件） -->
+    <Tabs :data="datas" :style="tabStyle"></Tabs>
   </div>
 </template>
 
 <script>
-import NavMenu from "@/components/navmenu";
-import Carousel from "@/components/carousel";
-import Forms from "@/components/forms";
+import Tabs from "@/components/tabs";
+import buttonList from "@/components/buttonlist";
+import componentList from "@/components/componentlist";
+import { list } from '@/store/component_list.js';
 export default {
   name: "index",
   data() {
     return {
-      nav_list: [
-        { name: "页面1", icon: "el-icon-tickets" },
-        { name: "页面2", icon: "el-icon-tickets" }
+      // tab 参数
+      datas: [
+        {
+          label: "页面",
+          component: buttonList,
+          data: [
+            {name: '页面1'},
+            {name: '页面2'},
+          ]
+        },
+        { label: "组件", component: componentList, data: list }
       ],
-      navstyles: {
-        active: "0",
-        bg_color: "#545c64",
-        text_color: "#fff",
-        active_color: "#ffd04b",
-        mode: false,
-        width: 4,
-        height: 100,
+      tabStyle: {
+        width: '15vw',
+        height: '100vh'
       },
     };
   },
   components: {
-    NavMenu
+    Tabs
   },
   methods: {
-    event (e) {
-      console.log(e)
+    event(e) {
+      console.log(e);
     }
   }
 };
 </script>
+
+<style lang="less" scoped>
+.index {
+  display: flex;
+}
+.nav {
+  width: 20%;
+}
+.lists {
+  width: 60%;
+}
+</style>

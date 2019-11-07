@@ -1,7 +1,7 @@
 <template>
   <div class="navmenu">
     <el-row class="tac">
-      <el-col :span="styles.width || 24">
+      <el-col>
         <el-menu
           :default-active="styles && styles.active"
           :class="{ 'el-menu-demo': styles, 'el-menu-demo': styles.mode }"
@@ -12,14 +12,22 @@
           :active-text-color="styles && styles.active_color"
           :style="{ height: styles && styles.height + 'vh' }"
         >
-          <div v-for="(item, index) in navList" :key="index" :class="{ border: index == key && styles.mode }">
+          <div
+            v-for="(item, index) in data"
+            :key="index"
+            :class="{ border: index == key && styles.mode }"
+          >
             <el-menu-item :index="String(index)" v-if="!item.submenu">
               <i :class="item.icon"></i>
               {{ item.name }}
             </el-menu-item>
             <el-submenu :index="String(index)" v-if="item.submenu">
               <template slot="title">{{ item.name }}</template>
-              <el-menu-item v-for="(i, idx) in item.children" :key="idx" :index="String(index) + '-' + String(idx)">
+              <el-menu-item
+                v-for="(i, idx) in item.children"
+                :key="idx"
+                :index="String(index) + '-' + String(idx)"
+              >
                 {{ i.name }}
               </el-menu-item>
             </el-submenu>
@@ -32,26 +40,26 @@
 
 <script>
 export default {
-  name: 'navmenu',
+  name: "navmenu",
   data() {
     return {
-      key: null || this.styles.active,
+      key: null || this.styles.active
     };
   },
   props: {
     navList: null,
-    styles: null,
+    styles: null
   },
   methods: {
     event(key, keyPath) {
       this.key = keyPath[0];
-      this.$emit('event', { key, keyPath });
-    },
-  },
+      this.$emit("event", { key, keyPath });
+    }
+  }
 };
 
 // 数据示例
-// nav_list: [
+// data: [
 //   {name: '导航1'},
 //   {name: '下拉导航1', submenu: true, children:[
 //     {name: '子选项1'}
@@ -65,7 +73,6 @@ export default {
 //   text_color: '#fff',
 //   active_color: '#ffd04b',
 //   mode: true,
-//   spam: 12
 // }
 </script>
 <style lang="less" scoped>
