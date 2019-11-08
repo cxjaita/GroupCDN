@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    assembly: null,
+    assembly: [],
     page: null
   },
   mutations: {
@@ -13,7 +13,7 @@ export default new Vuex.Store({
       state.page = e;
     },
     SelectComponents(state, e) {
-      state.assembly = e;
+      state.assembly.push(e);
     }
   },
   actions: {},

@@ -2,6 +2,7 @@
   <div class="index">
     <!-- tab组件（嵌套组件） -->
     <Tabs :data="datas" :style="tabStyle"></Tabs>
+    <router-view />
   </div>
 </template>
 
@@ -9,7 +10,8 @@
 import Tabs from "@/components/tabs";
 import buttonList from "@/components/buttonlist";
 import componentList from "@/components/componentlist";
-import { list } from '@/store/component_list.js';
+import { list } from "@/store/component_list.js";
+import { mapState } from "vuex";
 export default {
   name: "index",
   data() {
@@ -19,17 +21,14 @@ export default {
         {
           label: "页面",
           component: buttonList,
-          data: [
-            {name: '页面1'},
-            {name: '页面2'},
-          ]
+          data: [{ name: "页面1" }, { name: "页面2" }]
         },
         { label: "组件", component: componentList, data: list }
       ],
       tabStyle: {
-        width: '15vw',
-        height: '100vh'
-      },
+        width: "15vw",
+        height: "99vh"
+      }
     };
   },
   components: {
@@ -39,6 +38,9 @@ export default {
     event(e) {
       console.log(e);
     }
+  },
+  computed: {
+    ...mapState(["assembly"])
   }
 };
 </script>

@@ -1,12 +1,12 @@
 <template>
-  <div class="img">
-    <img :src="data.url" :style="styles" />
+  <div class="imgs">
+    <img :src="data && data.url" :style="styles" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "img",
+  name: "imgs",
   data() {
     return {};
   },
@@ -20,4 +20,4 @@ export default {
 // data = {属性值 url}
 </script>
 
-<style lang="less"></style>
+<style lang="less" scoped></style>

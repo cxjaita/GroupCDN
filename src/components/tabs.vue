@@ -6,7 +6,12 @@
         v-for="(item, index) in data"
         :key="index"
       >
-        <component :is="item.component" :attribute="item.attribute" :data="item.data" :style="item.styles"></component>
+        <component
+          :is="item.component || null"
+          :attribute="item.attribute"
+          :data="item.data"
+          :style="item.styles"
+        ></component>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -49,8 +54,8 @@ export default {
 // label = 标签名  component = 组件对象， attribute = 传入子组件的参数
 </script>
 
-<style lang="less">
-.el-tabs{
+<style lang="less" scoped>
+.el-tabs {
   height: 100%;
 }
 </style>

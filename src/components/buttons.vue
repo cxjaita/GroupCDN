@@ -1,12 +1,12 @@
 <template>
-  <div class="text">
-    <h2 :style="styles">{{ data.title }}</h2>
+  <div class="buttons">
+    <el-button :style="styles">{{ (data && data.name) || "按钮" }}</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "text",
+  name: "buttons",
   data() {
     return {};
   },
@@ -17,7 +17,7 @@ export default {
   methods: {}
 };
 // styles = {样式}
-// data = {属性值 title}
+// data = {属性值 value}
 </script>
 
-<style lang="less"></style>
+<style lang="less" scoped></style>

@@ -3,8 +3,11 @@
     <el-row class="tac">
       <el-col>
         <el-menu
-          :default-active="styles && styles.active"
-          :class="{ 'el-menu-demo': styles, 'el-menu-demo': styles.mode }"
+          :default-active="(styles && styles.active) || '0'"
+          :class="{
+            'el-menu-demo': styles,
+            'el-menu-demo': styles && styles.mode
+          }"
           :mode="styles && styles.mode ? 'horizontal' : 'vertical'"
           @select="event"
           :background-color="styles && styles.bg_color"

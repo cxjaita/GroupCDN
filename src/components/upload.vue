@@ -1,7 +1,7 @@
 <template>
   <div class="upload">
     <el-upload
-      :action="data.url"
+      :action="data && data.url"
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
       :on-remove="handleRemove"
@@ -42,4 +42,4 @@ export default {
 // data = {属性值 url}
 </script>
 
-<style lang="less"></style>
+<style lang="less" scoped></style>
