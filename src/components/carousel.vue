@@ -4,12 +4,12 @@
       :indicator-position="styles && styles.indicator"
       :autoplay="styles && styles.autoplay"
       :interval="styles && styles.interval"
-      :type="styles.type ? 'card' : ''"
+      :type="styles && styles.type ? 'card' : ''"
       :height="styles && styles.height + 'px'"
       :always="styles && styles.always"
       ref="carousel"
     >
-      <el-carousel-item v-for="(item, index) in carouseLlist" :key="index">
+      <el-carousel-item v-for="(item, index) in data" :key="index">
         <!-- <h3>{{ item.title }}</h3> -->
         <img :src="item.url" class="carousel_img" />
       </el-carousel-item>
@@ -17,7 +17,7 @@
         @swipeleft="swiperleft"
         @swiperight="swiperright"
         class="swipe"
-        :style="{ height: styles.height + 'px' || '100%' }"
+        :style="{ height: styles.height + 'px' && '100%' }"
       ></v-touch>
     </el-carousel>
   </div>
@@ -30,7 +30,7 @@ export default {
     return {};
   },
   props: {
-    carouseLlist: null,
+    data: null,
     styles: null
   },
   methods: {
